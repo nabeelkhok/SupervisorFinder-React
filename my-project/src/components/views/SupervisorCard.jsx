@@ -1,13 +1,12 @@
-// src/views/SupervisorCard.jsx
-import React from 'react'
-
 const SupervisorCard = ({ supervisor, onBookmark, isBookmarked }) => {
+  const { name, researchDomain, availableSlots, contactInfo } = supervisor;
+
   return (
     <div className={`bg-white p-6 rounded-lg shadow-md ${isBookmarked ? 'ring-2 ring-yellow-400' : ''}`}>
-      <h3 className="text-xl font-semibold mb-2">{supervisor.name}</h3>
-      <p className="text-gray-600 mb-1"><strong>Research Domain:</strong> {supervisor.researchDomain}</p>
-      <p className="text-gray-600 mb-1"><strong>Available Slots:</strong> {supervisor.availableSlots}</p>
-      <p className="text-gray-600 mb-4"><strong>Contact:</strong> {supervisor.contactInfo}</p>
+      <h3 className="text-xl font-semibold mb-2">{name}</h3>
+      <p className="text-gray-600 mb-1"><strong>Research Domain:</strong> {researchDomain}</p>
+      <p className="text-gray-600 mb-1"><strong>Available Slots:</strong> {availableSlots}</p>
+      <p className="text-gray-600 mb-4"><strong>Contact:</strong> {contactInfo}</p>
       <button
         onClick={() => onBookmark(supervisor.id)}
         className={`w-full px-4 py-2 text-white rounded-lg ${
@@ -17,7 +16,7 @@ const SupervisorCard = ({ supervisor, onBookmark, isBookmarked }) => {
         {isBookmarked ? 'Bookmarked ✓' : 'Bookmark'}
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default SupervisorCard
+export default SupervisorCard;
